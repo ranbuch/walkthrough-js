@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Walkthrough Tour</title>
+    <meta name="description" content="A javascript library for easy walkthrough and site tour (tutorial)">
+    <meta name="keywords" content="walkthrough,tour,tutorial,javascript">
+    <meta name="author" content="ranbuch@gmail.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="site/css/main.css">
+</head>
+
+<body>
+    <div class="pusher">
+
+        <div class="ui inverted vertical masthead center aligned segment main-bg">
+            <div class="ui text container center-vertical float-right">
+                <h1 class="ui inverted violet header">
+                    Walkthrough-JS
+                </h1>
+                <h2>a walkthrough tour library.</h2>
+                <div class="ui large inverted violet button" id="start">start the walkthrough</div>
+            </div>
+        </div>
+        <main class="center-me">
+
+
+
+            <div>
+                <div class="ui vertical stripe segment">
+                    <div class="t1-p">
+                        <div id="Example">
+                            <h4 class="ui horizontal header divider">
+                                <a class="theme-color" href="#Example">Example:</a>
+                            </h4>
+                            <!-- <h3 class="ui header">Example</h3> -->
+                            <div class="padd">
+                                <code>
+                                const wt = new Walkthrough();
+                                <br>
+                                let steps = [] as Array&lt;TutorialStage&gt;;
+                                <br>
+                                steps.push({
+                                <br>
+                                <div class="indent">
+                                    <code>
+                                    title: 'feature',
+                                    <br>
+                                    desc: 'feature description . . .',
+                                    <br>
+                                    selector: '.feature'
+                                    </code>
+                            </div>
+                            });
+                            <br>
+                            steps.push({
+                            <div class="indent">
+                                <code>
+                                    title: 'feature 2',
+                                    <br>
+                                    desc: 'second feature description . . .',
+                                    <br>
+                                    selector: '.feature',
+                                    <br>
+                                    selectorIndex: 1,
+                                    <br>
+                                    fixPadding: true
+                                </code>
+                            </div>
+                            });
+                            <br>
+                            steps.push({
+                            <div class="indent">
+                                <code>
+                                    desc: 'third feature description . . .',
+                                    <br>
+                                    element: document.getElementById('feature-3'),
+                                    <br>
+                                    fixMargin: true
+                                </code>
+                            </div>
+                            });
+                            <br><br>
+                            let options = new TutorialOptions(); // optional
+                            <br>
+                            options.identifier = 'my_page_name'; // the walkthrough uniq id
+                            <br>
+                            options.maxIdentifier = 1; // the max number of times that this uniq walkthrough will run
+                            for this user (default is 1)
+                            <br><br>
+                            wt.setTutorial(steps, options).subscribe(
+                            <div class="indent">
+                                <code>
+                                    () => {
+                                    <div class="indent">
+                                        <code>
+                                            alert('Walkthrough Done!');
+                                        </code>
+                            </div>
+                            }
+                            </code>
+                        </div>
+                        );
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="column" id="TutorialOptions">
+                    <h4 class="ui horizontal header divider">
+                        <a class="theme-color" href="#t2">TutorialOptions:</a>
+                    </h4>
+                    <div class="padd">
+                        <code>
+                            export class TutorialOptions {
+                            <div class="indent">
+                                <code>
+                                    public identifier?: string;
+                                    <br>
+                                    public maxIdentifier?: number;
+                                    <br>
+                                    constructor() {
+                                </code>
+                        <div class="indent">
+                            <code>
+                                        this.maxIdentifier = 1;
+                                    </code>
+                        </div>
+                        <code>}</code>
+                    </div>
+                    }
+                    </code>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="column" id="TutorialStage">
+                    <h4 class="ui horizontal header divider">
+                        <a class="theme-color" href="#TutorialStage">TutorialStage:</a>
+                    </h4>
+                    <div class="padd">
+                        <code>
+                        export interface TutorialStage {
+                        <div class="indent">
+                            <code>
+                                title?: string;
+                                <br>
+                                desc: string;
+                                <br>
+                                selector?: string;
+                                <br>
+                                selectorIndex?: number;
+                                <br>
+                                element?: HTMLElement;
+                                <br>
+                                autoread?: boolean;
+                                <br>
+                                fixMargin?: boolean;
+                                <br>
+                                fixPadding?: boolean;
+                                <br>
+                                top?: string;
+                                <br>
+                                left?: string;
+                                <br>
+                                onEnter?: Function;
+                                <br>
+                                onExit?: Function;
+                            </code>
+                        </div>
+                        }
+                    </code>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="column" id="BestPractices">
+                <h4 class="ui horizontal header divider">
+                    <a class="theme-color" href="#BestPractices">Best Practices:</a>
+                </h4>
+                <div class="padd">
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <div class="content">
+                                    <a class="header violet theme-color">Isolate the element</a>
+                                    <div class="description">Though it's not a must, it's best if the element you want to highlight won't have siblings</div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <a class="header violet theme-color">Use <code>fixMargin</code> and <code>fixPadding</code></a>
+                                    <div class="description">In cases things aren't looking good in terms of elements overflowing out of the tutorial border try to use <code>fixMargin: true</code> or <code>fixPadding: true</code></div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <a class="header violet theme-color">Locate the prompt manually</a>
+                                    <div class="description">The prompt location is being determined automatically. You can override this behaviour by adding <code>top: '-50px'</code> and <code>left: '30px'</code></div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="column" id="Installation">
+                <h4 class="ui horizontal header divider">
+                    <a class="theme-color" href="#Installation">Installation:</a>
+                </h4>
+                <div class="padd">
+                    <code>npm i walkthrough-js --save</code>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    </div>
+    <script src="/main.bundle.js"></script>
+</body>
+
+</html>

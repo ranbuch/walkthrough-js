@@ -1,0 +1,37 @@
+:root {
+    --theme-color: #6435c9; 
+}
+
+.theme-color {
+    color: var(--theme-color);
+}
+
+.ui.list .list>.item a.header.theme-color, .ui.list>.item a.header.theme-color {
+    color: var(--theme-color) !important;
+}
+
+.center-me {
+    margin: auto;
+    display: block;
+}
+
+code, code * {
+    background-color: rgba(200,200,200,0.2);
+}
+
+.disp-block {
+    display: block;
+}
+
+code .indent {
+    padding-left: 4em;
+    background-color: transparent;
+}
+
+main {
+    max-width: 1280px;
+}
+
+.padd {
+    padding: 10px 15px;
+}
