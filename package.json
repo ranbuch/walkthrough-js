@@ -1,6 +1,6 @@
 {
   "name": "walkthrough-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A javascript library for easy walkthrough and site tour / tutorial",
   "main": "index.js",
   "scripts": {

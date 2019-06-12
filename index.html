@@ -14,9 +14,7 @@
 </head>
 
 <body>
-    not ready yet . . .
-    <!-- <div class="pusher">
-
+    <div>
         <div class="ui inverted vertical masthead center aligned segment main-bg">
             <div class="ui text container center-vertical float-right">
                 <h1 class="ui inverted violet header">
@@ -220,19 +218,96 @@
 
 
         <div class="row">
-            <div class="column" id="Installation">
+            <div class="column" id="Usage">
                 <h4 class="ui horizontal header divider">
-                    <a class="theme-color" href="#Installation">Installation:</a>
+                    <a class="theme-color" href="#Usage">Usage:</a>
                 </h4>
                 <div class="padd">
                     <code>npm i walkthrough-js --save</code>
+                    <div>
+                        include script:
+                    </div>
+                    <code>
+                        &lt;script type="text/javascript" src="node_modules/walkthrough-js/dist/walkthrough.bundle.js"&gt;&lt;/script&gt;
+                    </code>
+                    <div>
+                        or with ES6:
+                    </div>
+                    <code>
+                        import { Walkthrough } from 'walkthrough-js/walkthrough';
+                        import { TutorialStage } from 'walkthrough-js/interface';
+                    </code>
+                    <div>
+                        initialize component:
+                    </div>
+                    <code>
+                        const wt = new Walkthrough();
+                        let steps = [];
+                        // define steps . . .
+                        wt.setTutorial(steps);
+                    </code>
                 </div>
             </div>
         </div>
-
     </main>
     </div>
-    <script src="/main.bundle.js"></script> -->
+    <script src="/walkthrough.bundle.js"></script>
+    <script>
+        (function () {
+            window.addEventListener('DOMContentLoaded', (event) => {
+
+                document.getElementById('start').addEventListener('click', () => {
+
+                    const wt = new Walkthrough();
+
+                    let steps = [];
+
+                    steps.push({
+                        title: 'example:',
+                        desc: 'Learn how to create a Walkthrough instance and set the TutorialStage array.',
+                        selector: '#Example',
+                        fixPadding: true
+                    });
+
+                    steps.push({
+                        title: 'TutorialOptions class:',
+                        desc: 'TutorialOptions is an optional paameter of the setTutorial function.',
+                        selector: '#TutorialOptions',
+                        fixPadding: true
+                    });
+
+                    steps.push({
+                        title: 'TutorialStage interface:',
+                        desc: 'Where calling setTutorial you should provide a TutorialStage array.',
+                        selector: '#TutorialStage',
+                        fixPadding: true
+                    });
+
+                    steps.push({
+                        title: 'Best Practices:',
+                        desc: 'In case you want to customize the behaviour of fix position issues you should read this section.',
+                        selector: '#BestPractices',
+                        fixPadding: true
+                    });
+
+                    steps.push({
+                        title: 'Usage:',
+                        desc: 'Use npm to easily install this library.',
+                        selector: '#Usage',
+                        fixPadding: true
+                    });
+
+                    wt.setTutorial(steps).subscribe(
+                        () => {
+                            console.log('Walkthrough Done!');
+                        }
+                    );
+                }, false);
+            });
+        })();
+    </script>
+    <!-- <script src="/site/scripts/main.ts"></script> -->
+    <!-- <script src="/walkthrough.bundle.js"></script> -->
 </body>
 
 </html>

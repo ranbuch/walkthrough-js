@@ -53,7 +53,7 @@ export class Walkthrough {
     private initStorageContainer(force: boolean) {
         if (!this.storageContainer || force) {
             this.storageContainer = this.storage.get(Walkthrough.storageContainerID) as StorageContainer;
-            if (!this.storageContainer)
+            if (typeof this.storageContainer !== 'object' || this.storageContainer === null)
                 this.storageContainer = {
                     identifiers: {}
                 } as StorageContainer;
@@ -67,7 +67,8 @@ export class Walkthrough {
     }
 
     private setStorageContainer() {
-        this.storage.set(Walkthrough.storageContainerID, this.storageContainer);
+        if (typeof this.storageContainer === 'object')
+            this.storage.set(Walkthrough.storageContainerID, this.storageContainer);
     }
 
     deployStep(step: TutorialStage) {
@@ -300,7 +301,7 @@ export class Walkthrough {
                 border: solid 1px #000000;
                 cursor: pointer;
                 color: #000000;
-                background: linear-gradient(199.34deg, #27D1E3 0%, #1FDDB1 100%);;
+                background: #fff;
                 padding: 5px 10px;
                 border-radius: 15px;
                 font-size: 13px;
@@ -405,3 +406,12 @@ export class Walkthrough {
         window.removeEventListener('resize', this.fixElementAndPrompt.bind(this));
     }
 }
+
+
+
+
+declare var self: any;
+declare var global: any;
+global = global || self;
+if (global)
+    global['Walkthrough'] = Walkthrough;

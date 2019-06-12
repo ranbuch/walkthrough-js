@@ -8,11 +8,11 @@ module.exports = {
     context: ROOT,
 
     entry: {
-        'main': './main.ts'
+        'main': './walkthrough.ts'
     },
     
     output: {
-        filename: '[name].bundle.js',
+        filename: 'walkthrough.bundle.js',
         path: DESTINATION
     },
 
