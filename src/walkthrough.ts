@@ -407,9 +407,6 @@ export class Walkthrough {
     }
 }
 
-
-
-
 declare var self: any;
 declare var global: any;
 global = global || self;
