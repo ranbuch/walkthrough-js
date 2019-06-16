@@ -3,6 +3,10 @@
   "version": "0.0.6",
   "description": "A javascript library for easy walkthrough and site tour / tutorial",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranbuch/walkthrough-js.git"
+  },
   "scripts": {
     "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base  --mode development",
     "build": "webpack --config webpack.config.js --mode production",
