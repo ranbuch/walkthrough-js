@@ -1,30 +1,44 @@
 export class StorageService {
     has(key: string): boolean {
-        return window.localStorage.hasOwnProperty(key);
-    }
-    set(key: string, value: any): void {
-        window.localStorage.setItem(key, JSON.stringify(value));
-    }
-    get(key: string): any {
-        let item = window.localStorage.getItem(key);
         try {
-            return JSON.parse(item);
+            return self.localStorage.hasOwnProperty(key);
         }
         catch (e) {
-            return item;
+            return false;
         }
     }
+    set(key: string, value: any): void {
+        self.localStorage.setItem(key, JSON.stringify(value));
+    }
+    get(key: string): any {
+        try {
+            let item = window.localStorage.getItem(key);
+            try {
+                return JSON.parse(item);
+            }
+            catch (e) {
+                return item;
+            }
+        }
+        catch (e) { }
+    }
     clear(): void {
-        window.localStorage.clear();
+        try {
+            self.localStorage.clear();
+        }
+        catch (e) { }
     }
     remove(key: string): void {
-        window.localStorage.removeItem(key);
+        try {
+            self.localStorage.removeItem(key);
+        }
+        catch (e) { }
     }
     isSupported() {
         let test = '_test';
         try {
-            localStorage.setItem(test, test);
-            localStorage.removeItem(test);
+            self.localStorage.setItem(test, test);
+            self.localStorage.removeItem(test);
             return true;
         } catch (e) {
             return false;
