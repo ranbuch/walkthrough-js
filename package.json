@@ -1,6 +1,6 @@
 {
   "name": "walkthrough-js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A javascript library for easy walkthrough and site tour / tutorial",
   "main": "index.js",
   "repository": {
@@ -33,7 +33,7 @@
   "author": "Ran Buchnik",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "6.5.2"
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
