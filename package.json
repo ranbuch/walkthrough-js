@@ -33,7 +33,7 @@
   "author": "Ran Buchnik",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "^6.6.3"
+    "rxjs": "^7.5.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
